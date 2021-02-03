@@ -1,0 +1,41 @@
+<div style="margin-bottom: 2rem;">
+	<form [formGroup]="search" (ngSubmit)="onSearch()" style="width: 50%; margin:0 auto">
+		<mat-form-field style="width: 200px; margin-right: 20px;">
+			<mat-label>Enter your Search</mat-label>
+			<input matInput formControlName="query">
+		</mat-form-field>
+		<br>
+		<mat-checkbox formControlName="bbcnews" class="shift">BBC News</mat-checkbox>
+		<mat-checkbox formControlName="abcnews" class="shift">ABC News</mat-checkbox>
+		<mat-checkbox formControlName="bbcsports" class="shift">BBC Sports</mat-checkbox>
+		<mat-checkbox formControlName="espn" class="shift">ESPN</mat-checkbox>
+		<mat-checkbox formControlName="cnn" class="shift">CNN</mat-checkbox>
+		<mat-checkbox formControlName="buzzfeed" class="shift">Buzz Feed</mat-checkbox>
+		<mat-checkbox formControlName="businessinsider" class="shift">Business Insider</mat-checkbox>
+		<br>
+		<button type="submit" mat-raised-button color="primary">Search</button>
+	</form>	
+</div>
+
+<div>	
+ <cdk-virtual-scroll-viewport itemSize="10" style="height: 100vh" >
+ 
+ 	<mat-card *cdkVirtualFor="let news of data" style="margin-bottom: 15px;">
+		<mat-card-header>
+			<mat-card-title> {{news.title}} </mat-card-title>
+			<mat-card-subtitle> {{news.author}} </mat-card-subtitle>
+		</mat-card-header>
+		
+		<mat-card-content>
+			{{news.content}}
+			<mat-card-subtitle> {{news.source_id}} </mat-card-subtitle>
+		 </mat-card-content>
+
+		 <mat-card-action>
+		 	<a mat-raised-button href={{news.url}}>Read More</a>
+		 </mat-card-action>	
+	</mat-card>
+
+ 	 
+ </cdk-virtual-scroll-viewport>
+</div>

@@ -1,0 +1,16 @@
+.main{
+	margin-top: 2rem;
+	text-align: center;
+	border: 2px solid black;
+}
+
+.shift{
+	margin-right: 5px;
+}
+
+cdk-virtual-scroll-viewport{
+	height: 30vh;
+	width: 100%;
+	margin: 0 auto;
+	border: 1px solid black;
+}
